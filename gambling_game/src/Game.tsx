@@ -71,7 +71,7 @@ export function PotentialBall({ visible }: { visible: boolean }) {
 function RewardBox({ color, text }: { color: string; text: string }) {
   return (
     <div
-      className={`w-8 h-8 text-sm ${color} flex items-center justify-center font-bold text-sm text-black`}
+      className={`w-8 h-8 text-sm ${color} flex items-center justify-center font-bold text-sm text-black rounded-sm`}
     >
       {text}
     </div>
