@@ -1,5 +1,8 @@
 import { useState } from "react";
 import Grid from "./Game";
+// TODO - migrate this logic over to server
+// TODO - get the prefixSum  Array from the server over an HTTP request
+// TODO - Add crypto
 const randomNumberGenerator = () => {
   return Math.floor(Math.random() * 2);
 };
@@ -22,19 +25,28 @@ function returnsPrefixSum(numArray: number[]) {
 }
 function App() {
   const [arr, setArr] = useState<number[] | undefined>(undefined);
-
   return (
     <>
       <div className="m-16 flex items-center justify-center">
         <Grid ballArraySum={arr} />
-        <button
-          className="px-4 py-2 rounded-lg bg-white text-black"
-          onClick={() => {
-            setArr(returnsPrefixSum(main()));
-          }}
-        >
-          Play
-        </button>
+        <div className="flex flex-col justify-center items-center gap-4">
+          <button
+            className="px-4 py-2 rounded-lg bg-white text-black"
+            onClick={() => {
+              setArr(returnsPrefixSum(main()));
+            }}
+          >
+            Play
+          </button>
+          <button
+            className="px-4 py-2 rounded-lg bg-white text-black"
+            onClick={() => {
+              setArr(undefined);
+            }}
+          >
+            Clear
+          </button>
+        </div>
       </div>
     </>
   );
